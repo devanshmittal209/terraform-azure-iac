@@ -16,6 +16,8 @@ jobs:
     env:
       DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      TF_VAR_databricks_host: ${{ secrets.DATABRICKS_HOST }}
+      TF_VAR_databricks_username: ${{ secrets.DATABRICKS_USERNAME }}
 
     steps:
       - name: Checkout repository
