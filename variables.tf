@@ -1,5 +1,19 @@
-variable "file_content" {
-  description = "Content to write to the managed file"
+variable "databricks_host" {
+  description = "Databricks workspace URL"
   type        = string
-  default     = "I am learning Infrastructure as Code with Terraform."
+}
+
+variable "databricks_username" {
+  description = "Databricks workspace username"
+  type        = string
+}
+
+variable "environment" {
+  description = "Deployment environment"
+  type        = string
+
+  validation {
+    condition     = contains(["development", "staging", "production"], var.environment)
+    error_message = "Environment must be development, staging, or production."
+  }
 }
